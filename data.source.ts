@@ -1,6 +1,8 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
 import { Category } from 'src/category/entities/category.entity';
+import { Group } from 'src/group/entities/group.entity';
+import { Listitem } from 'src/list_item/entities/listitem.entity';
 import { Shoppinglist } from 'src/shoppinglist/entities/shoppinglist.entity';
 import { User } from 'src/user/entity/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
@@ -16,7 +18,7 @@ export const dbConfig: TypeOrmModuleOptions = {
   database: process.env.DB_NAME,
   synchronize: true,
   //   entities: ['dist/**/*.entity{.ts,.js}'],
-  entities: [User, Category, Shoppinglist],
+  entities: [User, Category, Shoppinglist, Group, Listitem],
   migrations: ['dist/src/migrations/*{.ts,.js}'],
 };
 

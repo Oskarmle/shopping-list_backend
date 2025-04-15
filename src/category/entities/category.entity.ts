@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Shoppinglist } from 'src/shoppinglist/entities/shoppinglist.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Category {
@@ -13,4 +14,7 @@ export class Category {
 
   @Column()
   icon: string;
+
+  @OneToMany(() => Shoppinglist, (shoppinglist) => shoppinglist.category)
+  shoppinglists: Shoppinglist[];
 }

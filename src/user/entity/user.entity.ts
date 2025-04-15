@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Group } from 'src/group/entities/group.entity';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -19,4 +26,8 @@ export class User {
 
   @Column()
   age: number;
+
+  @ManyToMany(() => Group, (group) => group.users)
+  @JoinTable()
+  groups: Group[];
 }

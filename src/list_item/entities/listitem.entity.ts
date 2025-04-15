@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Shoppinglist } from 'src/shoppinglist/entities/shoppinglist.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Listitem {
@@ -10,4 +11,7 @@ export class Listitem {
 
   @Column()
   date: Date;
+
+  @ManyToOne(() => Shoppinglist, (shoppinglist) => shoppinglist.listitems)
+  shoppinglist: Shoppinglist;
 }

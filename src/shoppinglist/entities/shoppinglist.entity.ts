@@ -1,4 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Category } from 'src/category/entities/category.entity';
+import { Group } from 'src/group/entities/group.entity';
+import { Listitem } from 'src/list_item/entities/listitem.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Shoppinglist {
@@ -10,4 +19,13 @@ export class Shoppinglist {
 
   @Column()
   description: string;
+
+  @ManyToOne(() => Group, (group) => group.shoppinglists)
+  group: Group;
+
+  @ManyToOne(() => Category, (category) => category.shoppinglists)
+  category: Category;
+
+  @OneToMany(() => Listitem, (listitem) => listitem.shoppinglist)
+  listitems: Listitem[];
 }
