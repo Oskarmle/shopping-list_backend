@@ -7,8 +7,9 @@ import { UserModule } from './user/user.module';
 import { ListItemModule } from './list_item/list_item.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { dbConfig } from '../data.source';
+import { dbConfig } from '../data-source';
 import { GroupModule } from './group/group.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { GroupModule } from './group/group.module';
     UserModule,
     ListItemModule,
     GroupModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
