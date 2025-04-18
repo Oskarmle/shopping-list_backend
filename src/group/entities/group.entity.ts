@@ -22,6 +22,9 @@ export class Group {
   @Column()
   date_added: Date;
 
+  @Column()
+  group_creator: number;
+
   @ManyToMany(() => User, (user) => user.groups)
   users: User[];
 
