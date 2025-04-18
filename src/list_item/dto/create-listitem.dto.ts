@@ -1,4 +1,4 @@
 export class CreateListitemDto {
-  name: string;
+  title: string;
   date_added: Date;
 }

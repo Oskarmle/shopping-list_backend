@@ -15,7 +15,7 @@ export class CategoryService {
     return this.categoryRepository.save(createCategoryDto);
   }
 
-  remove(id: string) {
+  remove(id: number) {
     return this.categoryRepository.delete(id);
   }
 }
